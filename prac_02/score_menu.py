@@ -55,5 +55,4 @@ def print_stars(score):
     """print stars length of score"""
     print("*" * score)
 
-
 main()
