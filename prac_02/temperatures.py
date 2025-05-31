@@ -22,12 +22,14 @@ def main():
         choice = input(">>> ").upper()
     print("Thank you.")
 
-def calculate_fahrenheit():
+def calculate_celsius():
+    """converts Fahrenheit to Celsius"""
     fahrenheit = float(input("Fahrenheit: "))
     celsius = (5 / 9) * (fahrenheit - 32)
     print(f"Result: {celsius:.2f} C")
 
-def calculate_celsius():
+def calculate_fahrenheit():
+    """Converts Celsius to Fahrenheit"""
     celsius = float(input("Celsius: "))
     fahrenheit = celsius * 9.0 / 5 + 32
     print(f"Result: {fahrenheit:.2f} F")
