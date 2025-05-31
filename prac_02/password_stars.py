@@ -5,9 +5,9 @@ CP1404
 
 def main():
     """Print stars same length as password"""
-    get_valid_password()
+    get_password()
 
-def get_valid_password():
+def get_password():
     password = input("Password: ")
 
     while len(password) <= 5:
