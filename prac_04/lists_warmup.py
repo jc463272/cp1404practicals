@@ -44,5 +44,3 @@ print(numbers)
 #4. Print whether 9 is an element of numbers
 result = 9 in numbers
 print(f"Is 9 in {numbers}: {result}")
-
-
