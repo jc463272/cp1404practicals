@@ -10,10 +10,13 @@ NUMBERS_PER_LINE = 6
 MINIMUM = 1
 MAXIMUM = 45
 
+
 def main():
+    """Generate number of picks and display them"""
     number_of_picks = get_valid_picks()
     all_quick_picks = generate_quick_picks(number_of_picks)
     display_quick_picks(all_quick_picks)
+
 
 def get_valid_picks():
     """Prompt the user for a valid number of picks."""
@@ -23,11 +26,11 @@ def get_valid_picks():
             number = int(input("Enter number of picks: "))
             if number < 0:
                 raise ValueError("Number must be positive integer")
-            else:
-                is_finished =True
+            is_finished = True
         except ValueError:
             print("Invalid input. Try again.")
-    return number #No problem with undefined variable
+    return number  # No problem with undefined variable
+
 
 def generate_quick_picks(number_of_quick_picks):
     """Generates list of quick picks with unique numbers between 1 and 45."""
@@ -43,9 +46,11 @@ def generate_quick_picks(number_of_quick_picks):
         all_quick_picks.append(quick_picks)
     return all_quick_picks
 
+
 def display_quick_picks(quick_picks):
     """Display all quick picks in aligned format."""
     for quick_pick in quick_picks:
         print(" ".join(f"{number:2}" for number in quick_pick))
+
 
 main()
