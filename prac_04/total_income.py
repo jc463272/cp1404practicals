@@ -12,6 +12,7 @@ def main():
     report = generate_report(incomes)
     display_report(report)
 
+
 def get_incomes(number_of_months):
     """Calculate the accumulative monthly income"""
     incomes = []
@@ -19,6 +20,7 @@ def get_incomes(number_of_months):
         income = float(input(f"Enter income for month {str(month)}:"))
         incomes.append(income)
     return incomes
+
 
 def generate_report(incomes):
     """Generates report of monthly incomes"""
@@ -30,10 +32,12 @@ def generate_report(incomes):
         lines.append((month, income, total))
     return lines
 
+
 def display_report(lines):
     """Displays report based on incomes"""
     print("\nIncome Report\n-------------")
     for month, income, total in lines:
         print(f"Month {month:2} - Income: ${income:10.2f} Total: ${total:10.2f}")
+
 
 main()
