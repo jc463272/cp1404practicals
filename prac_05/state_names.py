@@ -4,7 +4,7 @@ State names in a dictionary
 File needs reformatting
 """
 
-CODE_TO_NAME = {"QLD": "Queensland",
+state_code_to_name = {"QLD": "Queensland",
                 "NSW": "New South Wales",
                 "NT": "Northern Territory",
                 "WA": "Western Australia",
@@ -15,8 +15,8 @@ CODE_TO_NAME = {"QLD": "Queensland",
 
 state = input("Enter short state: ").upper()
 while state != "":
-    if state in CODE_TO_NAME:
-        print(state, "is", CODE_TO_NAME[state])
+    if state in state_code_to_name:
+        print(state, "is", state_code_to_name[state])
     else:
         print("Invalid short state")
     state = input("Enter short state: ").upper()
