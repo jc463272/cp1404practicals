@@ -13,8 +13,6 @@ CODE_TO_NAME = {"QLD": "Queensland",
                 "TAS": "Tasmania",
                 "SA": "South Australia"}
 
-print(CODE_TO_NAME)
-
 state = input("Enter short state: ").upper()
 while state != "":
     if state in CODE_TO_NAME:
