@@ -28,8 +28,6 @@ while not is_valid_state:
             print("Invalid state code")
         else:
             is_valid_state = True
-    except ValueError:
-        print("Invalid short state")
     except TypeError:
         print("Invalid short state")
 
