@@ -4,7 +4,7 @@ State names in a dictionary
 File needs reformatting
 """
 
-state_code_to_name = {"QLD": "Queensland",
+STATE_CODE_TO_NAME = {"QLD": "Queensland",
                       "NSW": "New South Wales",
                       "NT": "Northern Territory",
                       "WA": "Western Australia",
@@ -13,18 +13,18 @@ state_code_to_name = {"QLD": "Queensland",
                       "TAS": "Tasmania",
                       "SA": "South Australia"}
 
-length_of_code = max(len(code) for code in state_code_to_name.keys())
+length_of_code = max(len(code) for code in STATE_CODE_TO_NAME.keys())
 
-for code, name in state_code_to_name.items():
+for code, name in STATE_CODE_TO_NAME.items():
     print(f"{code:{length_of_code}} is \t{name}")
 
 is_valid_state = False
 while not is_valid_state:
     try:
         state = input("Enter state code: ").upper()
-        if state in state_code_to_name:
-            print(f"{state:{length_of_code}} is \t{state_code_to_name[state]}")
-        elif state not in state_code_to_name:
+        if state in STATE_CODE_TO_NAME:
+            print(f"{state:{length_of_code}} is \t{STATE_CODE_TO_NAME[state]}")
+        elif state not in STATE_CODE_TO_NAME:
             print("Invalid state code")
         else:
             is_valid_state = True
