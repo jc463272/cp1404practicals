@@ -14,4 +14,3 @@ while colour_name != "":
     else:
         print(f"The colour {colour_name} is: N/A")
     colour_name = input("Enter colour name: ")
-
