@@ -1,7 +1,7 @@
 """
 Wimbledon
-Estimate: 20
-Actual:
+Estimate: 20 mins
+Actual: 50 mins
 CP1404 - William Hunter
 """
 
@@ -46,9 +46,9 @@ def display_results(player_to_wins, countries):
     print("Wimbledon Winners:\n")
     name_length = max(len(player) for player in player_to_wins)
     for player, wins in player_to_wins.items():
-        print(f"{player:{name_length}} {wins}")
+        print(f"{player:{name_length}} \t{wins}")
     print(f"\nThese countries {len(countries)} have one Wimbledon")
-    print(" ".join(sorted(countries)))
+    print(", ".join(sorted(countries)))
 
 
 main()

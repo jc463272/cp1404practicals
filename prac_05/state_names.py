@@ -13,10 +13,10 @@ STATE_CODE_TO_NAME = {"QLD": "Queensland",
                       "TAS": "Tasmania",
                       "SA": "South Australia"}
 
-length_of_code = max(len(code) for code in STATE_CODE_TO_NAME.keys())
+length_of_code = max(len(code) for code in STATE_CODE_TO_NAME)
 
 for code, name in STATE_CODE_TO_NAME.items():
-    print(f"{code:{length_of_code}} is \t{name}")
+    print(f"{code:{length_of_code}} is {name}")
 
 is_valid_state = False
 while not is_valid_state:
@@ -30,4 +30,3 @@ while not is_valid_state:
             is_valid_state = True
     except TypeError:
         print("Invalid short state")
-
