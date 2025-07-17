@@ -27,7 +27,7 @@ def main():
         elif choice == 'A':
             add_project(projects)
         elif choice == 'U':
-            pass #update project
+            update_project(projects)
         else:
             print("Please enter a valid choice.")
         display_menu()
@@ -73,8 +73,9 @@ def display_projects(projects):
         print(f" \t{complete_project}")
 
 def filter_projects(projects):
-    date_string = input("Show projects that start after date (dd/mm/yy): ")  # e.g., "30/9/2022"
-    date = datetime.datetime.strptime(date_string, "%d/%m/%y").date()
+    """Determine projected with start date after given date."""
+    date_string = input("Show projects that start after date (dd/mm/yyyy): ")  # e.g., "30/9/2022"
+    date = datetime.datetime.strptime(date_string, "%d/%m/%Y").date()
     filtered = [project for project in projects if project.is_after(date)]
     for project in filtered:
         print(project)
@@ -86,26 +87,40 @@ def add_project(projects):
     name = input("Name: ")
     start_date = input("Start date (dd/mm/yy): ")
     priority = int(input("Priority : "))
-    cost_estimate = float(input("Cost estimate: "))
+    cost_estimate = (input("Cost estimate: "))
     completion_percentage = int(input("Percent complete: "))
     projects.append(Project(name, start_date, priority, cost_estimate, completion_percentage))
 
 
 
 def update_project(projects):
-    """Update details of an existing project."""
+    """Update percent complete and priority of an existing project."""
     for i, project in enumerate(projects):
-        print(f"{i}. {project}")
-    choice = int(input("Project choice: "))
-    project = projects[choice]
-    print(project)
-    new_percent = int(input("New percent: "))
-    new_priority = int(input("New priority: "))
-    if new_percent:
-        project.completion_percentage = new_percent
-    if new_priority:
-        project.priority = new_priority
+        print(f"{i} {project}")
+    try:
+        choice = int(input("Project choice: "))
+        project = projects[choice]
+    except (ValueError, IndexError):
+        print("Invalid project choice.")
+        return
 
+    print(project)
+
+    percent_input = int(input("New percent: "))
+    if percent_input != "":
+        try:
+            new_percent = int(percent_input)
+            project.completion_percentage = new_percent
+        except (ValueError, IndexError):
+            print("Invalid percent input.")
+
+    priority_input = input("New priority: ")
+    if priority_input != "":
+        try:
+            new_priority = int(priority_input)
+            project.priority = new_priority
+        except ValueError:
+            print("Invalid input, must be an integer.")
 
 if __name__ == "__main__":
     main()
