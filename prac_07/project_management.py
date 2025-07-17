@@ -73,13 +73,39 @@ def display_projects(projects):
         print(f" \t{complete_project}")
 
 def filter_projects(projects):
-    pass
+    date_string = input("Show projects that start after date (dd/mm/yy): ")  # e.g., "30/9/2022"
+    date = datetime.datetime.strptime(date_string, "%d/%m/%y").date()
+    filtered = [project for project in projects if project.is_after(date)]
+    for project in filtered:
+        print(project)
+
 
 def add_project(projects):
-    pass
+    """Add a new project to list of projects."""
+    print("Let's add a new project")
+    name = input("Name: ")
+    start_date = input("Start date (dd/mm/yy): ")
+    priority = int(input("Priority : "))
+    cost_estimate = float(input("Cost estimate: "))
+    completion_percentage = int(input("Percent complete: "))
+    projects.append(Project(name, start_date, priority, cost_estimate, completion_percentage))
+
+
 
 def update_project(projects):
-    pass
+    """Update details of an existing project."""
+    for i, project in enumerate(projects):
+        print(f"{i}. {project}")
+    choice = int(input("Project choice: "))
+    project = projects[choice]
+    print(project)
+    new_percent = int(input("New percent: "))
+    new_priority = int(input("New priority: "))
+    if new_percent:
+        project.completion_percentage = new_percent
+    if new_priority:
+        project.priority = new_priority
+
 
 if __name__ == "__main__":
     main()
