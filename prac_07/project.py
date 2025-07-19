@@ -12,9 +12,9 @@ class Project:
     def __init__(self, name, start_date, priority, cost_estimate, completion_percentage):
         """Initialize a project instances."""
         self.name = name
-        self.start_date = datetime.datetime.strptime(start_date, "%d/%m/%Y").date()
+        self.start_date = start_date
         self.priority = int(priority)
-        self.cost_estimate = cost_estimate
+        self.cost_estimate = float(cost_estimate)
         self.completion_percentage = int(completion_percentage)
 
     def __repr__(self):
@@ -26,12 +26,13 @@ class Project:
         """Sort projects by priority."""
         return self.priority < other.priority
 
+
     def is_complete(self):
         """Determine if project is complete."""
         return self.completion_percentage == COMPLETE
 
     def is_after(self, date):
-        """Determine if start date is after given date."""
-        return self.start_date > date
+        """Determine if start date is in or after given date."""
+        return self.start_date >= date
 
 
