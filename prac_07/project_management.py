@@ -1,10 +1,11 @@
 """
 Estimate:1.5 hrs
-Actual:
+Actual: 3 hrs
 """
 
 from project import Project
 import datetime
+import operator
 
 FILENAME = "projects.txt"
 
@@ -32,6 +33,9 @@ def main():
             print("Please enter a valid choice.")
         display_menu()
         choice = input(">>>").upper()
+    if input(f"Would you like to save to {FILENAME}?").lower() in ['yes', 'y']:
+        save_projects(FILENAME, projects)
+    print("Thank you for using Project Management Program.")
 
 def display_menu():
     """Display menu options."""
@@ -44,22 +48,23 @@ def display_menu():
           "- (Q)uit")
 
 def load_projects(filename):
-    """Load projects from file."""
-    projects = []
+    """Load projects from file projects.txt."""
+    projects = [] #Empty list to store projects
     with open(filename, "r", encoding="utf-8") as infile:
         infile.readline()
         for line in infile:
             parts = line.strip().split("\t")
-            projects.append(Project(parts[0], parts[1], parts[2], parts[3], parts[4]))
+            projects.append(Project(name=parts[0], start_date=parts[1], priority=parts[2], cost_estimate=parts[3], completion_percentage=parts[4]))
+        projects.sort()
     return projects
 
 
 def save_projects(filename, projects):
     """Save projects to file."""
     with open(filename, "w", encoding="utf-8") as outfile:
+        print(f"Name\tStart Date\tPriority\tCost Estimate\tCompletion Percentage", file=outfile) #Write header to projects.txt file
         for project in projects:
-            print(f"{project.name}, start: {project.start_date}, priority: {project.priority}, "
-                  f"completion: {project.completion_percentage}%", file=outfile)
+            print(f"{project.name} \t{project.start_date} \t{project.priority} \t{project.cost_estimate} \t{project.completion_percentage}", file=outfile)
 
 def display_projects(projects):
     """Display projects as complete or incomplete."""
@@ -73,11 +78,15 @@ def display_projects(projects):
         print(f" \t{complete_project}")
 
 def filter_projects(projects):
-    """Determine projected with start date after given date."""
+    """Determine projected with start date on or after given date."""
     date_string = input("Show projects that start after date (dd/mm/yyyy): ")  # e.g., "30/9/2022"
     date = datetime.datetime.strptime(date_string, "%d/%m/%Y").date()
+
+
     filtered = [project for project in projects if project.is_after(date)]
-    for project in filtered:
+    sorted_filtered = sorted(filtered, key=operator.attrgetter("start_date")) #sort the filtered projects by start date
+
+    for project in sorted_filtered:
         print(project)
 
 
@@ -85,11 +94,12 @@ def add_project(projects):
     """Add a new project to list of projects."""
     print("Let's add a new project")
     name = input("Name: ")
-    start_date = input("Start date (dd/mm/yy): ")
-    priority = int(input("Priority : "))
-    cost_estimate = (input("Cost estimate: "))
-    completion_percentage = int(input("Percent complete: "))
-    projects.append(Project(name, start_date, priority, cost_estimate, completion_percentage))
+    start_date = (input("Start date (dd/mm/yy): "))
+    date = datetime.datetime.strptime(start_date, "%d/%m/%Y").date()
+    priority = input("Priority : ")
+    cost_estimate = input("Cost estimate: ").strip('$')
+    completion_percentage = input("Percent complete: ")
+    projects.append(Project(name, date, priority, cost_estimate, completion_percentage))
 
 
 
