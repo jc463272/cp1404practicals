@@ -3,9 +3,10 @@ Estimate:1.5 hrs
 Actual: 3 hrs
 """
 
-from project import Project
 import datetime
 import operator
+from project import Project
+
 
 FILENAME = "projects.txt"
 
@@ -62,7 +63,7 @@ def load_projects(filename):
 def save_projects(filename, projects):
     """Save projects to file."""
     with open(filename, "w", encoding="utf-8") as outfile:
-        print(f"Name\tStart Date\tPriority\tCost Estimate\tCompletion Percentage", file=outfile) #Write header to projects.txt file
+        print("Name\tStart Date\tPriority\tCost Estimate\tCompletion Percentage", file=outfile) #Write header to projects.txt file
         for project in projects:
             print(f"{project.name} \t{project.start_date} \t{project.priority} \t{project.cost_estimate} \t{project.completion_percentage}", file=outfile)
 
@@ -94,7 +95,7 @@ def add_project(projects):
     """Add a new project to list of projects."""
     print("Let's add a new project")
     name = input("Name: ")
-    start_date = (input("Start date (dd/mm/yy): "))
+    start_date = input("Start date (dd/mm/yy): ")
     date = datetime.datetime.strptime(start_date, "%d/%m/%Y").date()
     priority = input("Priority : ")
     cost_estimate = input("Cost estimate: ").strip('$')
@@ -134,6 +135,3 @@ def update_project(projects):
 
 if __name__ == "__main__":
     main()
-
-
-
