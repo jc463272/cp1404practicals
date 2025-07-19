@@ -12,7 +12,7 @@
 
 ## About the author?
 * Second year Bachelor of Engineering Undergraduate currently learning online due to a temporary move to Sydney.
-* Planning on moving back to Townsville next year (2026) :thumpsup:
+* Planning on moving back to Townsville next year (2026) :+1:
 * Enjoying the coding subject, it has improved my coding structure and coding logic
 * Looking forward to the learning in the back half of the tri-mester :tada:
 
