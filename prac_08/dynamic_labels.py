@@ -1,7 +1,7 @@
 """
 CP1404 - William Hunter
-Estimate:
-Actual:
+Estimate: 30 mins
+Actual: 25 mins
 """
 
 from kivy.app import App
