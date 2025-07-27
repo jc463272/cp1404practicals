@@ -12,7 +12,7 @@ from kivy.properties import StringProperty
 FILENAME = 'dynamic_labels.kv'
 
 class NameLabels(App):
-    """Main program Kivy app - dynamically create label for names in list."""
+    """Main program dynamically create label for names in list."""
     name = StringProperty()
     def __init__(self, **kwargs):
         """Initialize app and define list of names."""
@@ -20,7 +20,7 @@ class NameLabels(App):
         self.names = ['Kyle','David','Jeff','William']
 
     def build(self):
-        """Build display and populate dynamic labales."""
+        """Build display and populate dynamic labels."""
         self.title = 'Name Labelling'
         self.root = Builder.load_file(FILENAME)
         self.create_widgets()

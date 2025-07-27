@@ -22,16 +22,17 @@ class MilesConverterApp(App):
         return self.root
 
     def handle_calculate(self, text):
-        """Handle calculation when button pressed or input entered."""
+        """Calculate kilometers for entered string input."""
         miles = self.convert_to_number(text)
         self.update_result(miles)
 
     def handle_increment(self, text, change):
-        """Handle up/down button press, updated the text input value."""
+        """Increment the string input with button pressed, update text input value."""
         miles = self.convert_to_number(text) + change
         self.root.ids.input_miles.text = str(miles)
 
     def update_result(self, miles):
+        """Update the output from string text value."""
         self.output_km = str(miles * FACTOR_MILES_TO_KM)
 
     @staticmethod

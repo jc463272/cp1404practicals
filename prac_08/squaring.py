@@ -13,16 +13,17 @@ __author__ = 'Lindsay Ward'
 
 
 class SquareNumberApp(App):
-    """ SquareNumberApp is a Kivy App for squaring a number """
+    """ SquareNumberApp is a Kivy App for squaring a number. """
     def build(self):
-        """ build the Kivy app from the kv file """
+        """ build the Kivy app from the kv file. """
         Window.size = (800, 400)
         self.title = "Square Number 2"
         self.root = Builder.load_file('squaring.kv')
         return self.root
 
     def handle_calculate(self, value):
-        """ handle calculation (could be button press or other call), output result to label widget """
+        """ handle calculation (could be button press or other call),
+        output result to label widget. """
         try:
             result = float(value) ** 2
             self.root.ids.output_label.text = str(result)
