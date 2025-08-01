@@ -2,7 +2,7 @@
 CP1404 - William Hunter
 Time to test some unreliable cars
 Estimated: 20 mins
-Actual:
+Actual: 20 mins
 """
 
 from unreliable_car import UnreliableCar
