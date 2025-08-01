@@ -9,7 +9,7 @@ from taxi import Taxi
 def main():
     """Test taxi class."""
     #Create taxi object for testing
-    my_taxi = Taxi("Prius 1", fuel = int(100), price_per_km = float(1.23))
+    my_taxi = Taxi("Prius 1", fuel = int(100))
     print(my_taxi)
 
     #Drive taxi 40km
