@@ -2,7 +2,7 @@
 CP1404 - William Hunter
 Missing Band class for program my_band.py
 Estimated: 20 mins
-Actual:
+Actual: 26 mins
 """
 
 class Band:
